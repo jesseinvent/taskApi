@@ -1,0 +1,21 @@
+{
+  "name": "Task-Api",
+  "version": "1.0.0",
+  "description": "A task manager APi server",
+  "author": "Jesse Invent",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server",
+    "start": "node server"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.2",
+    "morgan": "^1.10.0"
+  }
+}
