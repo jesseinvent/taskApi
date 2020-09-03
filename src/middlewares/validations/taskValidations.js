@@ -1,5 +1,5 @@
 
-exports.addAuth = (req, res, next) => {
+exports.addTaskValidation = (req, res, next) => {
 
   if(req.body.name && req.body.description){
 
@@ -16,7 +16,7 @@ exports.addAuth = (req, res, next) => {
 }
 
 
-exports.updateAuth = (req, res, next) => {
+exports.updateTaskValidation = (req, res, next) => {
 
   if(req.body.name || req.body.description || req.body.completed){
     next();

@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const taskRoutes = require('./routes/task-route');
+const userRoutes = require('./routes/user-route');
 const sanitizer = require('express-mongo-sanitize');
 const db = require('./config/mongodb');
 
@@ -27,6 +28,9 @@ app.get('/', (req, res) => {
 
 // Tasks routes
 app.use('/api/tasks', taskRoutes);
+
+// Users routes
+app.use('/api/users', userRoutes);
 
 // Invalid route
 app.use((req, res, next) => {

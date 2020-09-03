@@ -24,15 +24,15 @@ exports.addTask = async (req, res) => {
 
   try {
 
-        const newTask = new Task({
-          ...req.body
-        });
+      const newTask = new Task({
+        ...req.body
+      });
 
-        await newTask.save();
-        res.status(201).json({status: 'success', newTask});
+      await newTask.save();
+      res.status(201).json({status: 'success', newTask});
 
   } catch (error) {
-    res.status(400).json({message: error });
+    res.status(400).json({ status: 'fail', message: 'Task could not created' });
   }
 
 }
@@ -50,7 +50,7 @@ exports.getTask = async (req, res) => {
     res.status(200).json({status: 'success', task});
 
   } catch (error) {
-    res.status(400).json({message: error });
+    res.status(400).json({ status: 'fail', message: error });
   }
 
 }
@@ -61,11 +61,10 @@ exports.editTask = async (req, res) => {
   try {
 
       const updatedTask = await Task.updateOne({_id: req.params.id}, {...req.body});
-      res.status(200).json({status: 'success', updatedTask});
+      res.status(200).json({status: 'success', message: 'updated'});
 
   } catch (error) {
-    console.log(error);
-    res.status(400).json({message: error });
+    res.status(400).json({status: 'fail', message: 'Could not update' });
 
   }
 
@@ -76,7 +75,7 @@ exports.deleteTask = (req, res) => {
 
    Task.findByIdAndDelete(req.params.id)
    .then((result) => {
-     res.status(200).json({status: 'success'});
-   })
+     res.status(200).json({ status: 'success', message: 'task deleted' });
+   });
 
 }

@@ -19,7 +19,7 @@ const taskSchema = new Schema(
   },
   {
     timestamps: true,
-    collection: 'blogs'
+    collection: 'tasks'
   }
 
 );
